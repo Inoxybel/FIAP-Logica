@@ -39,7 +39,7 @@ def calculaMedia(notas: list) -> float:
 '''Dado uma nota, verificar se ela é válida (de 0 a 10). Exibir a mensagem "Nova válida" ou "Nota inválida'''
 def exercicio01():
     nota = float(input("Digite a nota: ")) #Exemplo de uso: 3.1
-    if validaNotas([nota]):
+    if validaNotas([nota]) == 0:
         print("Nota válida")
     else:
         print("Nota inválida")
