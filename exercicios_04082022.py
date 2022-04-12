@@ -1,4 +1,10 @@
 # Validar notas da lista se estão entre os números 0 e 10, caso não, retorna a posição da lista com o número inválido
+def antiReducaoDeNota(valor: float):
+    strValor = str(valor)
+    if strValor.find(".00") != -1 or strValor[strValor.find("."):] == ".0":
+        return int(valor)
+    return valor
+
 def validaNotas(notas: float) -> int:
     validation = 0
     for nota in notas:
@@ -52,7 +58,7 @@ def exercicio02() -> bool:
     if validacao == 0:
         notas = excluiMenorNota(notas)
         media = calculaMedia(notas)
-        print(media)
+        print(antiReducaoDeNota(media))
     else:
         print(f'{validacao}º nota inválida')
 
@@ -70,7 +76,7 @@ def exercicio03():
         else:
             status = "Reprovado"
 
-        print(f'{status} com media {media}')
+        print(f'{status} com media {antiReducaoDeNota(media)}')
     else:
         print("Somente digite notas de 0 a 10")
 
@@ -85,15 +91,15 @@ def exercicio04():
         notas = excluiMenorNota(notas)
         media = calculaMedia(notas)
         if media < 4:
-            print(f'Reprovado com media {media}')
+            print(f'Reprovado com media {antiReducaoDeNota(media)}')
         elif 4 <= media < 6:
             novaNota = float(input("Digite a nota de recuperação: "))
             novaMedia = (media + novaNota) / 2
             if (novaMedia < 5):
-                print(f'Reprovado no Exame com media {novaMedia}')
+                print(f'Reprovado no Exame com media {antiReducaoDeNota(novaMedia)}')
             else:
-                print(f'Aprovado no Exame com media {novaMedia}')
+                print(f'Aprovado no Exame com media {antiReducaoDeNota(novaMedia)}')
         else:
-            print(f'Aprovado com media {media}')
+            print(f'Aprovado com media {antiReducaoDeNota(media)}')
     else:
         print("Somente digite notas de 0 a 10")
