@@ -1,10 +1,11 @@
-# Validar notas da lista se estão entre os números 0 e 10, caso não, retorna a posição da lista com o número inválido
+# Encontrar redundância de zeros a direita no float para transformar em um tipo inteiro
 def antiReducaoDeNota(valor: float):
     strValor = str(valor)
     if strValor.find(".00") != -1 or strValor[strValor.find("."):] == ".0":
         return int(valor)
     return valor
 
+# Validar notas da lista se estão entre os números 0 e 10, caso não, retorna a posição da lista com o número inválido
 def validaNotas(notas: float) -> int:
     validation = 0
     for nota in notas:
